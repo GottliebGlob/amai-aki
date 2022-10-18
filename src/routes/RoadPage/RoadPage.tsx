@@ -58,8 +58,9 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
         marginTop: 0,
       }}
       sx={{
-        "&:hover": { transform: "scale3d(1.03, 1.03, 1.03)" },
-        transition: "transform 0.25s ease-in-out",
+        color: '#696969',
+        "&:hover": { transform: "scale3d(1.03, 1.03, 1.03)",  color: theme.palette.primary.contrastText },
+        transition: "all 0.25s ease-in-out",
       }}
     >
       <Typography
@@ -67,9 +68,9 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
         style={{
           fontFamily: "Main",
           fontWeight: "bold",
-          color: theme.palette.primary.contrastText,
           fontSize: 120,
         }}
+
       >
         {number}
       </Typography>
@@ -96,6 +97,9 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
 };
 
 export const RoadPage = () => {
+  const theme = useTheme();
+
+
   return (
     <div
       style={{
@@ -113,7 +117,7 @@ export const RoadPage = () => {
         style={{
           fontFamily: "Main",
           fontWeight: "bold",
-          color: "black",
+          color: theme.palette.primary.contrastText,
           marginLeft: "2.5%",
           marginBottom: 40,
         }}

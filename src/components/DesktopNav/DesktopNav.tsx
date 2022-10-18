@@ -49,12 +49,13 @@ export const DesktopNav = () => {
             backgroundColor: '#fff',
             height: 65,
             boxShadow: 'rgb(0 0 0 / 30%) 5px 5px 10px',
+            zIndex: 999
         }}>
             <div style={{
                 display: 'flex',
-                marginLeft: '3%'
+                marginLeft: '2%'
             }}>
-             
+                    <img src={logo} alt="logo" style={{height: 40,   padding: 10,}} />
     
             </div>
 

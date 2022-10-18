@@ -1,8 +1,10 @@
-import { Grid, Typography } from "@mui/material";
-import lore from "../../img/lore.png";
+import { Grid, Typography, useTheme } from "@mui/material";
+import lore from "../../img/loreLeft.png";
 
 
 export const LorePage = () => {
+const theme = useTheme()
+
   return (
     <div
       style={{
@@ -32,16 +34,16 @@ export const LorePage = () => {
         >
             <Typography
             variant="h2"
-            style={{ fontFamily: "Main", fontWeight: "bold", color: "black", position: 'fixed'}}
+            style={{ fontFamily: "Main", fontWeight: "bold", color: theme.palette.primary.contrastText, position: 'fixed'}}
           >
             Lore
           </Typography>
 
             <img src={lore} style={{
-                width: 300,
+                width: '20%',
                 position: 'fixed',
-                top: '40%',
-                left: '15%'
+                top: '25%',
+                left: '12%'
                 }} />
         </Grid>
 
