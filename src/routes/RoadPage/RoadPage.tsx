@@ -1,5 +1,5 @@
-import { Grid, Paper, Typography, useTheme } from "@mui/material";
-import React from "react";
+import { Grid, Paper, Slide, Typography, useTheme } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
 interface RoadComponentProps {
   number: string;
@@ -99,6 +99,44 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
 export const RoadPage = () => {
   const theme = useTheme();
 
+  const [firstSlide, setFirstSlide] = useState(false);
+
+  useEffect(
+    () => {
+      let timer1 = setTimeout(() => setFirstSlide(true), 400);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    },
+    []
+  );
+
+  const [secondSlide, setSecondSlide] = useState(false);
+
+  useEffect(
+    () => {
+      let timer1 = setTimeout(() => setSecondSlide(true), 800);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    },
+    []
+  );
+
+  const [thirdSlide, setThirdSlide] = useState(false);
+
+  useEffect(
+    () => {
+      let timer1 = setTimeout(() => setThirdSlide(true), 1200);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    },
+    []
+  );
 
   return (
     <div
@@ -131,6 +169,7 @@ export const RoadPage = () => {
           marginLeft: "2.5%",
         }}
       >
+          <Slide direction="right" in={true} timeout={500} mountOnEnter unmountOnExit>
         <Grid
           item
           xs={12}
@@ -141,7 +180,9 @@ export const RoadPage = () => {
         >
           <RoadComponent number="01" steps={firstStep} />
         </Grid>
+        </Slide>
 
+        <Slide direction="left" in={firstSlide} timeout={500} mountOnEnter unmountOnExit>
         <Grid
           item
           xs={12}
@@ -152,7 +193,9 @@ export const RoadPage = () => {
         >
           <RoadComponent number="02" steps={secondStep} />
         </Grid>
+        </Slide>
 
+        <Slide direction="right" in={secondSlide} timeout={500} mountOnEnter unmountOnExit>
         <Grid
           item
           xs={12}
@@ -163,7 +206,9 @@ export const RoadPage = () => {
         >
           <RoadComponent number="03" steps={thirdStep} />
         </Grid>
+        </Slide>
 
+        <Slide direction="left" in={thirdSlide} timeout={500} mountOnEnter unmountOnExit>
         <Grid
           item
           xs={12}
@@ -174,6 +219,7 @@ export const RoadPage = () => {
         >
           <RoadComponent number="04" steps={fourStep} />
         </Grid>
+        </Slide>
       </Grid>
     </div>
   );
