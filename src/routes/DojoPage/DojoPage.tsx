@@ -1,4 +1,4 @@
-import { Fade, Grid, Paper, Typography, useTheme } from "@mui/material";
+import { Fade, Grid, Paper, Slide, Typography, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import dojoRight from "../../img/dojoRight.png";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { FaDiscord, FaTwitter } from "react-icons/fa";
 import team1 from "../../img/team1.png";
 import team2 from "../../img/team2.png";
 import team3 from "../../img/team3.png";
+import isMobile from "../../components/isMobile";
 
 interface ToggleButtonProps {
   title: string;
@@ -240,6 +241,7 @@ const theme = useTheme();
 
 const TeamBlock = () => {
   const theme = useTheme();
+  const mobile = isMobile();
   const [memberSelected, setMemberSelected] = useState(0);
   const [isHover, setIsHover] = useState(false);
 
@@ -254,12 +256,12 @@ const TeamBlock = () => {
   ]
 
   return (
-    <div style={{ marginTop: 50 }}>
+    <div style={{ marginTop: 50, width: '100%', display: 'flex', justifyContent: 'center' }}>
       <Grid
         container
-        spacing={4}
+        spacing={mobile ? 0 : 4}
         style={{
-          width: "100%",
+          width: mobile ? '80%' : "100%",
         }}
       >
         <Grid
@@ -429,6 +431,7 @@ const TeamBlock = () => {
 
 const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMemberCard) => {
   const [hover, setHover] = useState(false);
+  const mobile = isMobile();
 
   const mouseOnHandler = () => {
     setHover(true);
@@ -471,7 +474,8 @@ const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMembe
           margin: 0,
           borderRadius: 15,
           boxShadow: "rgb(0 0 0 / 30%) 5px 5px 10px",
-          ...(hover ? onHover : null),
+          ...(hover || mobile ? onHover : null),
+          marginBottom: mobile ? 20 : 0 
         }}
       />
 
@@ -487,7 +491,7 @@ const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMembe
           right: 0,
           textAlign: "center",
           top: "30%",
-          ...(hover ? IconOnHover : null),
+          ...(hover || mobile ? IconOnHover : null),
         }}
         onClick={() => window.open(link, "_blank")}
       />
@@ -505,7 +509,7 @@ const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMembe
           right: 0,
           textAlign: "center",
           top: "50%",
-          ...(hover ? IconOnHover : null),
+          ...(hover || mobile ? IconOnHover : null),
         }}
       >
         {name}
@@ -520,6 +524,8 @@ const ToggleButton = ({
   setState,
   current,
 }: ToggleButtonProps) => {
+  const mobile = isMobile();
+
   return (
     <Paper
       elevation={8}
@@ -532,6 +538,7 @@ const ToggleButton = ({
         borderRadius: 10,
         backgroundColor: current === state ? "black" : "#fff",
         cursor: "pointer",
+        margin: mobile ? 5 : 0
       }}
       sx={{
         "&:hover": { transform: "scale3d(1.03, 1.03, 1.03)" },
@@ -539,7 +546,7 @@ const ToggleButton = ({
       }}
     >
       <Typography
-        variant="h4"
+        variant={mobile ? 'h5' : 'h4'}
         style={{
           fontFamily: "Main",
           fontWeight: "bold",
@@ -554,6 +561,7 @@ const ToggleButton = ({
 
 export const DojoPage = () => {
   const theme = useTheme();
+  const mobile = isMobile();
   const [dojoState, setDojoState] = useState(0);
 
   return (
@@ -561,11 +569,11 @@ export const DojoPage = () => {
       style={{
         display: "flex",
         flex: 1,
-        width: window.innerWidth,
+        width: mobile ? '100%' : window.innerWidth,
         minHeight: "100vh",
         justifyContent: "center",
         alignItems: "flex-start",
-        marginTop: 150,
+        marginTop: mobile ? 90 : 150,
       }}
     >
       <Grid
@@ -574,6 +582,7 @@ export const DojoPage = () => {
           width: "95%",
         }}
       >
+          <Slide direction="right" in={true} timeout={500} mountOnEnter unmountOnExit>
         <Grid
           item
           xs={12}
@@ -586,14 +595,14 @@ export const DojoPage = () => {
         >
           <Grid
             container
-            spacing={4}
+            spacing={mobile ? 0 : 4}
             style={{
               width: "100%",
             }}
           >
             <Grid
               item
-              xs={12}
+              xs={4}
               sm={4}
               md={4}
               lg={4}
@@ -611,7 +620,7 @@ export const DojoPage = () => {
 
             <Grid
               item
-              xs={12}
+              xs={4}
               sm={4}
               md={4}
               lg={4}
@@ -629,7 +638,7 @@ export const DojoPage = () => {
 
             <Grid
               item
-              xs={12}
+              xs={4}
               sm={4}
               md={4}
               lg={4}
@@ -649,15 +658,17 @@ export const DojoPage = () => {
           {dojoState === 0 ? <AboutBlock /> : dojoState > 1 ? <TeamBlock /> : <UtilityBlock/>}
 
         </Grid>
+        </Slide>
 
         <Grid
           item
-          xs={12}
+          xs={6}
           sm={6}
           md={6}
           lg={6}
           style={{
             width: "100%",
+            display: mobile ? 'none' : 'block'
           }}
         >
           <img

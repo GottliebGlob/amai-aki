@@ -1,4 +1,4 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import { Fade, Grid, Typography, useTheme } from "@mui/material";
 import lore from "../../img/loreLeft.png";
 
 
@@ -57,6 +57,7 @@ const theme = useTheme()
             width: "100%",
           }}
         >
+           <Fade in={true} timeout={500} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black" }}
@@ -69,6 +70,9 @@ const theme = useTheme()
             sweet girls decided to spend their summer holidays on the golden
             coast of Maizuru city.
           </Typography>
+          </Fade>
+
+          <Fade in={true} timeout={1000} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black", marginTop: 20 }}
@@ -84,7 +88,9 @@ const theme = useTheme()
             upcoming manga, it's time for you to learn a little more about how
             one day turned the lives of several girls at once.
           </Typography>
+          </Fade>
 
+          <Fade in={true} timeout={1500} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black", marginTop: 20 }}
@@ -98,7 +104,9 @@ const theme = useTheme()
             Buddhist temples, gather for an overnight stay with friends, or
             maybe just sleep all day and wait for the start school year?
           </Typography>
+          </Fade>
 
+          <Fade in={true} timeout={2000} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black", marginTop: 20 }}
@@ -114,7 +122,9 @@ const theme = useTheme()
             thinking twice, the girls said at once: ''Done!! We will spend this
             summer vacation in Maizuru and enjoy beach holiday.''
           </Typography>
+</Fade>
 
+<Fade in={true} timeout={2500} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black", marginTop: 20 }}
@@ -128,7 +138,10 @@ const theme = useTheme()
             it was, they immediately realized that this would be literally the
             best vacation of their lives.
           </Typography>
+          </Fade>
 
+
+          <Fade in={true} timeout={3000} mountOnEnter unmountOnExit>
           <Typography
             variant="h5"
             style={{ fontFamily: "Main", fontWeight: "bold", color: "black", marginTop: 20 }}
@@ -140,6 +153,7 @@ const theme = useTheme()
             now we need to be patient and be ready for anything, because we are
             waiting for ''Great holidays''.
           </Typography>
+          </Fade>
         </Grid>
       </Grid>
     </div>
