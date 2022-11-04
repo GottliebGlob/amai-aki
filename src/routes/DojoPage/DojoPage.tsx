@@ -6,6 +6,10 @@ import { FaDiscord, FaTwitter } from "react-icons/fa";
 import team1 from "../../img/team1.png";
 import team2 from "../../img/team2.png";
 import team3 from "../../img/team3.png";
+import team4 from "../../img/team4.png";
+import team5 from "../../img/team5.png";
+import team6 from "../../img/team6.png";
+
 import isMobile from "../../components/isMobile";
 
 interface ToggleButtonProps {
@@ -247,16 +251,16 @@ const TeamBlock = () => {
 
   const members = [
     "",
-    "Denis is the greatest team member you have ever seen. He is true heart of our team. We are so glad to have such a professional in our team.",
-    "Jonh is the greatest team member you have ever seen. He is true heart of our team. We are so glad in our team.",
-    "Alice is the greatest team member you have ever seen. We are so glad to have such a professional in our team.",
-    "Shawn is the greatest team member you have ever seen. He is true heart of our team. We are so glad to have such a professional in our team.",
-    "Jordan is the greatest team member you have ever seen. He is true heart of our team. We are so glad in our team.",
-    "Alex is the greatest team member you have ever seen. We are so glad to have such a professional in our team."
+    "Timur is the ideological mastermind and leader of the Amai Aki team. He is already more than 2 years in the NFT universe, developing in this area and following the latest news. Before launching Amai Aki worked as a Barista and as a Discord Server Administrator on various large projects. Despite the fact that he lives in Ukraine, every day he shares a part of himself to our project",
+    "Tol is a french core of our marketing. His aim is to make the whole NFT world know about Amai Aki with a french accent. You can contact him on twitter 24/7. His is a big fan of manga, and always ready to share his passion with you",
+    "Crusader is an experiensed web3 developer from Poland, early adopter of Solana ecosystem and web3 believer. All the tech part upon his shoulders. He is also a part of the Amai Aki team since the very beginning",
+    "Artist Lives in the Netherlands, Amsterdam. Every artwork you see is art and her personal take on the Amai Aki universe. She started drawing at the age of 10, now she creates masterpieces in the world of NFT. She loves anime and manga, and also the game Genshin Impact. She gets inspiration by manga reading and outdoor meditation",
+    "Akio is the beginner manga and article writer from Japan, Nagoya. He has read more than 100 manga, as well as many different Buddhistic scriptures. He believes that the foundation of any project is its description and lore. Akio speaks little and is in constant understanding of his inner world, but he is always ready to help and tell an interesting story",
+    "Alex is the Ukrainian fashion designer. He is responsible for Amai Online Store and all the designs for it. He draws his inspiration from Japanese mythology and manga"
   ]
 
   return (
-    <div style={{ marginTop: 50, width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <div style={{ marginTop: 50, width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
       <Grid
         container
         spacing={mobile ? 0 : 4}
@@ -274,13 +278,14 @@ const TeamBlock = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width: '100%'
           }}
         >
           <TeamPicture
             index={1}
-            name="Denis James"
+            name="Timur"
             link="https://twitter.com/CozyTown_"
-            img={team1}
+            img={team3}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
@@ -300,9 +305,9 @@ const TeamBlock = () => {
         >
          <TeamPicture
             index={2}
-            name="Jonh Doe"
-            link="https://twitter.com/CozyTown_"
-            img={team1}
+            name="Tol Manson"
+            link="https://twitter.com/Tol_Manson"
+            img={team2}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
@@ -322,8 +327,8 @@ const TeamBlock = () => {
         >
          <TeamPicture
             index={3}
-            name="Alice Frauh"
-            link="https://twitter.com/CozyTown_"
+            name="Crusader In Code"
+            link="https://twitter.com/CrusaderInCode"
             img={team1}
             setMember={setMemberSelected}
             isHovered={setIsHover}
@@ -345,9 +350,9 @@ const TeamBlock = () => {
         >
           <TeamPicture
             index={4}
-            name="Shawn Bell"
+            name="Artist"
             link="https://twitter.com/CozyTown_"
-            img={team1}
+            img={team4}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
@@ -368,9 +373,9 @@ const TeamBlock = () => {
         >
          <TeamPicture
             index={5}
-            name="Jordan Bellfast"
+            name="Akio"
             link="https://twitter.com/CozyTown_"
-            img={team1}
+            img={team5}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
@@ -391,16 +396,16 @@ const TeamBlock = () => {
         >
          <TeamPicture
             index={6}
-            name="Alex Deuch"
+            name="Alex"
             link="https://twitter.com/CozyTown_"
-            img={team1}
+            img={team6}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
         </Grid>
       </Grid>
 
-  <Fade in={isHover} timeout={500}>
+  <Fade in={isHover && !mobile} timeout={500}>
       <Typography
         variant="h5"
         style={{

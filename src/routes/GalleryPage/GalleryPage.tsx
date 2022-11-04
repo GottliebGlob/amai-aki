@@ -10,11 +10,12 @@ import gal7 from "../../img/gal7.png";
 import gal8 from "../../img/gal8.png";
 import gal9 from "../../img/gal9.png";
 import gal10 from "../../img/gal10.png";
+import isMobile from '../../components/isMobile';
 
 
 export const GalleryPage = () => {
     const theme = useTheme();
-
+    const mobile = isMobile();
     const images = [gal1, gal2, gal3, gal4, gal5, gal6, gal7, gal8, gal9, gal10];
 
     return (
@@ -26,7 +27,7 @@ export const GalleryPage = () => {
           justifyContent: "center",
           alignItems: "flex-start",
           flexDirection: "column",
-          marginTop: 150,
+          marginTop: mobile ? 80 : 150,
         }}
       >
         <Typography
@@ -35,8 +36,10 @@ export const GalleryPage = () => {
             fontFamily: "Main",
             fontWeight: "bold",
             color: theme.palette.primary.contrastText,
-            marginLeft: "2.5%",
-            marginBottom: 40,
+            textAlign: mobile ? 'center' : 'left',
+          width: '100%',
+          marginBottom: 20,
+          marginLeft: mobile ? 0 : '2.5%',
           }}
         >
           Gallery

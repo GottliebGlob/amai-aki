@@ -20,6 +20,8 @@ export const MainPage = () => {
             marginTop: 60,
             width: window.innerWidth,
             height: window.innerHeight - 60,
+            maxWidth: window.innerHeight,
+            overflow: 'hidden',
             }}>
           
         </div>

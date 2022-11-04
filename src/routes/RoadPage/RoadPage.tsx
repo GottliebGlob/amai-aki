@@ -1,5 +1,6 @@
 import { Grid, Paper, Slide, Typography, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import isMobile from "../../components/isMobile";
 
 interface RoadComponentProps {
   number: string;
@@ -40,6 +41,7 @@ const fourStep = [
 
 const RoadComponent = ({ number, steps }: RoadComponentProps) => {
   const theme = useTheme();
+  const mobile = isMobile();
 
   return (
     <Paper
@@ -47,14 +49,14 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
       style={{
         width: "100%",
         borderRadius: 20,
-        padding: 10,
+        padding: mobile ? 5 : 10,
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
         alignItems: "flex-start",
-        marginLeft: 40,
-        marginRight: 40,
-        marginBottom: 80,
+        marginLeft: mobile ? 20 : 40,
+        marginRight: mobile ? 20 : 40,
+        marginBottom: mobile ? 40 : 80,
         marginTop: 0,
       }}
       sx={{
@@ -98,6 +100,7 @@ const RoadComponent = ({ number, steps }: RoadComponentProps) => {
 
 export const RoadPage = () => {
   const theme = useTheme();
+  const mobile = isMobile();
 
   const [firstSlide, setFirstSlide] = useState(false);
 
@@ -142,12 +145,12 @@ export const RoadPage = () => {
     <div
       style={{
         display: "flex",
-        flex: 1,
+        overflowX: "hidden",
         width: window.innerWidth,
         justifyContent: "center",
         alignItems: "flex-start",
         flexDirection: "column",
-        marginTop: 150,
+        marginTop: mobile ? 80 : 150,
       }}
     >
       <Typography
@@ -156,8 +159,10 @@ export const RoadPage = () => {
           fontFamily: "Main",
           fontWeight: "bold",
           color: theme.palette.primary.contrastText,
-          marginLeft: "2.5%",
           marginBottom: 40,
+          textAlign: mobile ? 'center' : 'left',
+          width: '100%',
+          marginLeft: mobile ? 0 : '2.5%',
         }}
       >
         Amai Map
@@ -165,8 +170,7 @@ export const RoadPage = () => {
       <Grid
         container
         style={{
-          width: "95%",
-          marginLeft: "2.5%",
+          width: "100%",
         }}
       >
           <Slide direction="right" in={true} timeout={500} mountOnEnter unmountOnExit>

@@ -1,8 +1,10 @@
 import { Slide, Typography, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import isMobile from '../../components/isMobile';
 
 export const StorePage = () => {
     const theme = useTheme();
+    const mobile = isMobile();
 
     const [dots, setDots] = useState(0);
 
@@ -28,11 +30,11 @@ export const StorePage = () => {
         }}>
 
 <Slide direction="up" in={true} timeout={500} mountOnEnter unmountOnExit>
-            <Typography variant='h1' style={{ fontFamily: 'Main', 
+            <Typography variant={mobile ? 'h2' : 'h1'} style={{ fontFamily: 'Main', textAlign: 'center',
             fontWeight: 'bold', color: 'black' }}
             >
                 Coming soon
-                <Typography variant='h1' style={{ fontFamily: 'Main', 
+                <Typography variant={mobile ? 'h2' : 'h1'} style={{ fontFamily: 'Main', 
             fontWeight: 'bold', color: theme.palette.primary.contrastText, display: 'inline' }}
             sx={{
                 opacity: dots > 0 ? 1 : 0,
@@ -41,7 +43,7 @@ export const StorePage = () => {
             >
                 .
                 </Typography>
-                <Typography variant='h1' style={{ fontFamily: 'Main', 
+                <Typography variant={mobile ? 'h2' : 'h1'} style={{ fontFamily: 'Main', 
             fontWeight: 'bold', color: theme.palette.primary.contrastText, display: 'inline' }}
             sx={{
                 opacity: dots > 1 ? 1 : 0,
@@ -50,7 +52,7 @@ export const StorePage = () => {
             >
                 .
                 </Typography>
-                <Typography variant='h1' style={{ fontFamily: 'Main', 
+                <Typography variant={mobile ? 'h2' : 'h1'} style={{ fontFamily: 'Main', 
             fontWeight: 'bold', color: theme.palette.primary.contrastText, display: 'inline' }}
             sx={{
                 opacity: dots > 2 ? 1 : 0,
