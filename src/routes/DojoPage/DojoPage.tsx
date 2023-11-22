@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import dojoRight from "../../img/dojoRight.png";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
 
-import team1 from "../../img/team1.png";
+import team1 from "../../img/team1.jpg";
 import team2 from "../../img/team2.png";
 import team3 from "../../img/team3.png";
 import team4 from "../../img/team4.png";
@@ -22,7 +22,7 @@ interface ToggleButtonProps {
 interface TeamMemberCard {
   index: number;
   name: string;
-  link: string;
+  link?: string;
   img: string;
   setMember: (currentMember: number) => void;
   isHovered: (flag: boolean) => void;
@@ -250,22 +250,27 @@ const TeamBlock = () => {
   const [isHover, setIsHover] = useState(false);
 
   const members = [
-    "",
-    "Timur is the ideological mastermind and leader of the Amai Aki team. He is already more than 2 years in the NFT universe, developing in this area and following the latest news. Before launching Amai Aki worked as a Barista and as a Discord Server Administrator on various large projects. Despite the fact that he lives in Ukraine, every day he shares a part of himself to our project",
-    "Tol is a french core of our marketing. His aim is to make the whole NFT world know about Amai Aki with a french accent. You can contact him on twitter 24/7. His is a big fan of manga, and always ready to share his passion with you",
-    "Crusader is an experiensed web3 developer from Poland, early adopter of Solana ecosystem and web3 believer. All the tech part upon his shoulders. He is also a part of the Amai Aki team since the very beginning",
-    "Artist Lives in the Netherlands, Amsterdam. Every artwork you see is art and her personal take on the Amai Aki universe. She started drawing at the age of 10, now she creates masterpieces in the world of NFT. She loves anime and manga, and also the game Genshin Impact. She gets inspiration by manga reading and outdoor meditation",
-    "Akio is the beginner manga and article writer from Japan, Nagoya. He has read more than 100 manga, as well as many different Buddhistic scriptures. He believes that the foundation of any project is its description and lore. Akio speaks little and is in constant understanding of his inner world, but he is always ready to help and tell an interesting story",
-    "Alex is the Ukrainian fashion designer. He is responsible for Amai Online Store and all the designs for it. He draws his inspiration from Japanese mythology and manga"
-  ]
+    "Seed is the ideological mastermind and leader of the Amai Aki team. He is already more than 3 years in the NFT universe, developing in this area and following the latest news. Before launching Amai Aki worked as a Barista and as a Discord Server Administrator on various projects. Every day he shares a part of himself to our project and the manga behind it. For all the manga stuff you have to thank him.",
+    "Tol is a core of our marketing. His aim is to make the whole NFT world know about Amai Aki. You can contact him on twitter 24/7. His is a big fan of manga, and always ready to share his passion with you.",
+    "DarkNess is an experiensed web3 developer from Poland, early adopter of Solana ecosystem and web3 believer. All the tech part upon his shoulders. He is also a part of the Amai Aki team since the very beginning. Have advices or just wnat to know how the thing are working? Just dm me on discord.",
+    "Every artwork you see is art and her personal take on the Amai Aki Universe. She started drawing at the age of 10, now she creates masterpieces in the world of NFT. She loves anime and manga, and also the game Genshin Impact. She gets inspiration by manga reading and outdoor meditation.",
+  ];
 
   return (
-    <div style={{ marginTop: 50, width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+    <div
+      style={{
+        marginTop: 50,
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <Grid
         container
         spacing={mobile ? 0 : 4}
         style={{
-          width: mobile ? '80%' : "100%",
+          width: mobile ? "80%" : "100%",
         }}
       >
         <Grid
@@ -278,14 +283,14 @@ const TeamBlock = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: '100%'
+            width: "100%",
           }}
         >
           <TeamPicture
-            index={1}
-            name="Timur"
-            link="https://twitter.com/CozyTown_"
-            img={team3}
+            index={0}
+            name="Seed"
+            link="https://twitter.com/_seed_nft"
+            img={team1}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
@@ -303,10 +308,10 @@ const TeamBlock = () => {
             alignItems: "center",
           }}
         >
-         <TeamPicture
-            index={2}
+          <TeamPicture
+            index={1}
             name="Tol Manson"
-            link="https://twitter.com/Tol_Manson"
+            link="https://twitter.com/TolManson"
             img={team2}
             setMember={setMemberSelected}
             isHovered={setIsHover}
@@ -325,17 +330,16 @@ const TeamBlock = () => {
             alignItems: "center",
           }}
         >
-         <TeamPicture
-            index={3}
-            name="Crusader In Code"
-            link="https://twitter.com/CrusaderInCode"
-            img={team1}
+          <TeamPicture
+            index={2}
+            name="DarkNess"
+            img={team3}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
         </Grid>
 
-         <Grid
+        <Grid
           item
           xs={12}
           sm={4}
@@ -345,90 +349,42 @@ const TeamBlock = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: '5%'
+            marginTop: "5%",
           }}
         >
           <TeamPicture
-            index={4}
-            name="Artist"
-            link="https://twitter.com/CozyTown_"
+            index={3}
+            name="Amaila"
             img={team4}
-            setMember={setMemberSelected}
-            isHovered={setIsHover}
-          />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          md={4}
-          lg={4}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: '5%'
-          }}
-        >
-         <TeamPicture
-            index={5}
-            name="Akio"
-            link="https://twitter.com/CozyTown_"
-            img={team5}
-            setMember={setMemberSelected}
-            isHovered={setIsHover}
-          />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          md={4}
-          lg={4}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: '5%'
-          }}
-        >
-         <TeamPicture
-            index={6}
-            name="Alex"
-            link="https://twitter.com/CozyTown_"
-            img={team6}
             setMember={setMemberSelected}
             isHovered={setIsHover}
           />
         </Grid>
       </Grid>
 
-  <Fade in={isHover && !mobile} timeout={500}>
-      <Typography
-        variant="h5"
-        style={{
-          fontFamily: "Main",
-          fontWeight: "bold",
-          color: "black",
-          marginTop: 20,
-        }}
-      >
+      <Fade in={isHover && !mobile} timeout={500}>
+        <Typography
+          variant="h5"
+          style={{
+            fontFamily: "Main",
+            fontWeight: "bold",
+            color: "black",
+            marginTop: 20,
+          }}
+        >
           <Typography
-        variant="h5"
-        style={{
-          fontFamily: "Main",
-          fontWeight: "bold",
-          color: theme.palette.primary.contrastText,
-          display: "inline",
-        }}
-      >
-
-{members[memberSelected].split(" ")[0]}
-      </Typography>
-       {` ${members[memberSelected].split(" ").slice(1).join(" ")}`}
-      </Typography>
+            variant="h5"
+            style={{
+              fontFamily: "Main",
+              fontWeight: "bold",
+              color: theme.palette.primary.contrastText,
+              display: "inline",
+            }}
+          >
+            {members[memberSelected].split(" ")[0]}
+          </Typography>
+          {` ${members[memberSelected].split(" ").slice(1).join(" ")}`}
+        </Typography>
       </Fade>
     </div>
   );
@@ -480,11 +436,11 @@ const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMembe
           borderRadius: 15,
           boxShadow: "rgb(0 0 0 / 30%) 5px 5px 10px",
           ...(hover || mobile ? onHover : null),
-          marginBottom: mobile ? 20 : 0 
+          marginBottom: mobile ? 20 : 0,
         }}
       />
 
-      <FaTwitter
+    { link && <FaTwitter
         style={{
           fontSize: 35,
           cursor: "pointer",
@@ -499,7 +455,7 @@ const TeamPicture = ({ index, name, link, img, setMember, isHovered }: TeamMembe
           ...(hover || mobile ? IconOnHover : null),
         }}
         onClick={() => window.open(link, "_blank")}
-      />
+      />}
 
       <Typography
         variant="h5"

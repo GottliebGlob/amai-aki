@@ -1,7 +1,7 @@
 import React from 'react';
 import {Paper, Typography, Modal, useTheme} from "@mui/material";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import {FaTwitter, FaDiscord} from "react-icons/fa";
+import {FaTwitter, FaDiscord, FaNewspaper} from "react-icons/fa";
 
 interface MobileNavProps {
 isOpen: boolean,
@@ -41,36 +41,76 @@ const TextUnit = ({text, navLink}: TextUnitProps) => {
 
 export const MobileNav = ({isOpen, handleClose}: MobileNavProps) => {
     return (
-        <Modal
-            open={isOpen}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+      <Modal
+        open={isOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Paper
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 50,
+            marginTop: "3.5rem",
+            outline: "none",
+            padding: 20,
+          }}
         >
-            <Paper style={{display: 'flex', flexDirection: 'column', margin: 50, marginTop: '3.5rem',outline: 'none', padding: 20}}>
-            <TextUnit text="HOME" navLink="/" />
-            <TextUnit text="DOJO" navLink="/dojo" />
-        <TextUnit text="LORE" navLink="/lore" />
-        <TextUnit text="AMAI MAP" navLink="/roadmap" />
-        <TextUnit text="GALLERY" navLink="/gallery" />
-        <TextUnit text="STORE" navLink="/store" />
+          <TextUnit text="HOME" navLink="/" />
+          <TextUnit text="DOJO" navLink="/dojo" />
+          <TextUnit text="LORE" navLink="/lore" />
+          <TextUnit text="AMAI MAP" navLink="/roadmap" />
+          <TextUnit text="GALLERY" navLink="/gallery" />
+          <TextUnit text="STORE" navLink="/store" />
 
-<div style={{
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    
-}}>
-<FaDiscord style={{fontSize: 35, cursor: 'pointer', color: 'black', padding: 10, paddingBottom: 0}}
-                           onClick={() => window.open("https://discord.gg/jqYHrPZH", "_blank")}/>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <FaDiscord
+              style={{
+                fontSize: 35,
+                cursor: "pointer",
+                color: "black",
+                padding: 10,
+                paddingBottom: 0,
+              }}
+              onClick={() =>
+                window.open("https://discord.gg/A23HygXeGz", "_blank")
+              }
+            />
 
-                <FaTwitter style={{fontSize: 35, cursor: 'pointer', color: 'black', padding: 10, paddingBottom: 0}}
-                           onClick={() => window.open("https://twitter.com/CozyTown_", "_blank")}
-                />
-</div>
-        
-            </Paper>
-        </Modal>
+            <FaTwitter
+              style={{
+                fontSize: 35,
+                cursor: "pointer",
+                color: "black",
+                padding: 10,
+                paddingBottom: 10,
+              }}
+              onClick={() =>
+                window.open("https://twitter.com/amai_aki_", "_blank")
+              }
+            />
+
+            <FaNewspaper
+              style={{
+                fontSize: 35,
+                cursor: "pointer",
+                color: "black",
+                padding: 0,
+              }}
+              onClick={() =>
+                window.open("https://amai-aki.gitbook.io/welcome", "_blank")
+              }
+            />
+          </div>
+        </Paper>
+      </Modal>
     );
 };
 

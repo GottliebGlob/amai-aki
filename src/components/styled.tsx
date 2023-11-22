@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {LinearProgress, Paper} from "@mui/material";
-import {WalletMultiButton} from "@solana/wallet-adapter-react-ui";
 
 
 export const MainContainer = styled.div`
@@ -53,22 +52,6 @@ export const Wallet = styled.ul`
   margin: 0;
   padding: 0;
 `;
-
-export const ConnectButton = styled(WalletMultiButton)`
-  border-radius: 18px !important;
-  padding: 6px 16px;
-  background-color: #4E44CE;
-  margin: 0 auto;
-`;
-
-export const FullWidthConnectButton = styled(WalletMultiButton)`
-  border-radius: 10px !important;
-  padding: 6px 16px;
-  background-color: #4E44CE;
-  margin: 0 auto;
-  width: 100%;
-`;
-
 
 export const BorderLinearProgress = styled(LinearProgress)`
   margin: 15px;

@@ -34,6 +34,7 @@ const thirdStep = [
 const fourStep = [
   "• Search for an influencers for collabs with Amai Aki DAO",
   "• Drawing of two tickets for a unique trip to Japan",
+  "• Visual Novel Release",
   "• Online store official opening",
   "• Amai Aki anime teaser",
   "• RoadMap V.2 development",
